@@ -1,4 +1,28 @@
+"use client";
+
+import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import { Button } from "../ui/button";
+
+function AuthButton() {
+  const { data: session } = useSession();
+
+  if (session) {
+    return (
+      <>
+        <h1> {session?.user?.name} </h1>
+        <Button onClick={() => signOut()}>Sign Out</Button>
+      </>
+    );
+  }
+
+  return (
+    <>
+      Not signed in
+      <Button onClick={() => signIn()}>Sig in</Button>
+    </>
+  );
+}
 
 const Navbar = () => {
   return (
@@ -11,6 +35,7 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
+          <AuthButton />
         </div>
       </nav>
     </>

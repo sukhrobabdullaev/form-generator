@@ -1,8 +1,10 @@
 import React from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import { getServerSession } from "next-auth";
 
-const Hero = () => {
+const Hero = async () => {
+  const session = await getServerSession();
   return (
     <div className="min-h-[90vh] flex gap-10 items-center justify-center">
       <div className="flex-1 flex space-y-2 flex-col">
@@ -27,6 +29,8 @@ const Hero = () => {
           priority
         />
       </div>
+      getServerSession result
+      {session?.user?.name && <h2>{session?.user?.name}</h2>}
     </div>
   );
 };
