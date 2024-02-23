@@ -13,6 +13,10 @@ export const authOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
     }),
   ],
+  pages: {
+    signIn: "/auth/signin",
+    signOut: "/auth/signout",
+  },
 };
 
 export const handler = NextAuth(authOptions);

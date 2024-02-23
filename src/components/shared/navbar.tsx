@@ -18,7 +18,6 @@ function AuthButton() {
 
   return (
     <>
-      Not signed in
       <Button onClick={() => signIn()}>Sig in</Button>
     </>
   );
@@ -58,11 +57,11 @@ const links = [
     label: "Docs",
   },
   {
-    href: "/login",
+    href: "/auth/signin",
     label: "Login",
   },
   {
-    href: "/sign-up",
+    href: "/auth/signup",
     label: "Sign Up",
   },
 ];
